@@ -1,0 +1,197 @@
+body {
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    background-color: LightGreen;
+}
+
+h1 {
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    background-color: Lime;
+    border-radius: 10px;
+    animation: Header 2s ease 0s 1 normal both;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    padding:15px 200px;
+}
+
+h2 {
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+    background-color: LimeGreen;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
+}
+
+a {
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.btn {
+       display: inline-block;
+       cursor: pointer;
+       font-size:25px;
+       font-family: sans-serif;
+       text-decoration:none;
+       color:#000000;
+       background:#32cd32;
+       padding:15px 200px;
+       box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    color: black;
+    font-family: sans-serif;
+    text-align: center;
+    vertical-align: middle
+}
+
+img {
+      border-radius: 10px;
+}
+
+.container1 {
+             display: grid;
+             grid-template-columns: repeat(1, 1fr);
+             gap: 5px;
+             grid-auto-rows: minmax(100px, auto);
+}
+
+.container2 {
+             display: grid;
+             grid-template-columns: repeat(3, 1fr);
+             gap: 50px;
+             grid-auto-rows: minmax(100px, auto);
+}
+
+frame {
+        color: black;
+        font-family: sans-serif;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 10px;
+}
+
+.left {
+    animation: FromLeft 1s ease 0.5s 1 normal both;
+}
+
+.right {
+    animation: FromRight 1s ease 0.5s 1 normal both;
+}
+
+.dnsexit {
+    display: none
+}
+
+@keyframes Header {
+	0% {
+		transform: scale(0.5);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+@keyframes FromLeft {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 1;
+		transform: translateX(-30px);
+	}
+
+	24% {
+		opacity: 1;
+	}
+
+	40% {
+		animation-timing-function: ease-in;
+		transform: translateX(-26px);
+	}
+
+	65% {
+		animation-timing-function: ease-in;
+		transform: translateX(-13px);
+	}
+
+	82% {
+		animation-timing-function: ease-in;
+		transform: translateX(-6.5px);
+	}
+
+	93% {
+		animation-timing-function: ease-in;
+		transform: translateX(-4px);
+	}
+
+	25%,
+	55%,
+	75%,
+	87%,
+	98% {
+		animation-timing-function: ease-out;
+		transform: translateX(0px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
+
+@keyframes FromRight {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 1;
+		transform: translateX(30px);
+	}
+
+	24% {
+		opacity: 1;
+	}
+
+	40% {
+		animation-timing-function: ease-in;
+		transform: translateX(26px);
+	}
+
+	65% {
+		animation-timing-function: ease-in;
+		transform: translateX(13px);
+	}
+
+	82% {
+		animation-timing-function: ease-in;
+		transform: translateX(6.5px);
+	}
+
+	93% {
+		animation-timing-function: ease-in;
+		transform: translateX(4px);
+	}
+
+	25%,
+	55%,
+	75%,
+	87%,
+	98% {
+		animation-timing-function: ease-out;
+		transform: translateX(0px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateX(0px);
+	}
+}
