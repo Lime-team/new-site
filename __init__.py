@@ -9,24 +9,27 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, BooleanField, PasswordField
 from wtforms.validators import DataRequired, Email, Length
 
+import os
+from dotenv import load_dotenv
 
 # init
 
 app = Flask(__name__)
 
-app.secret_key = b'\xe0S\xfc\xca\xc2#\xaauy\t\x1dN}\x9e\x1d\xb0-\x02:\xb3l\x9c\xaeR'
+app.secret_key = os.getenv('FLASK-SECRET-KEY')
 
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+load_dotenv()
+
 create_table()
+
+# user login class
 
 
 def get(user_id):
     get_user(user_id)
-
-
-# user login class
 
 
 class User(UserMixin):
