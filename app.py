@@ -1,7 +1,9 @@
 # import all need
-from flask import Flask, redirect, url_for, render_template, flash, make_response
+from flask import Flask, redirect, url_for, render_template, flash, request
 
 from flask_login import LoginManager, UserMixin, login_required
+
+from flask_sqlalchemy import SQLAlchemy, Migrate
 
 from blog_users_manage import *
 
@@ -20,6 +22,11 @@ app.secret_key = os.getenv('FLASK-SECRET-KEY')
 
 login_manager = LoginManager()
 login_manager.init_app(app)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(os.path.abspath(
+    os.path.dirname(__file__)), 'users.db')
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 load_dotenv()
 
@@ -43,8 +50,8 @@ class User(UserMixin):
 
 
 class LoginForm(FlaskForm):
-    email = StringField("Имя: ", validators=[DataRequired()])
-    psw = PasswordField("Пароль: ", validators=[DataRequired()])
+    username = StringField("Имя: ", validators=[DataRequired()])
+    password = PasswordField("Пароль: ", validators=[DataRequired()])
     submit = SubmitField("Войти")
 
 
@@ -89,24 +96,22 @@ def admin():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    # Здесь мы используем некий класс для представления и проверки наших
-    # данных формы на стороне клиента. Например, WTForms — это библиотека, которая
-    # обрабатывает это за нас, и мы используем специальную форму входа для проверки.
     form = LoginForm()
     if form.validate_on_submit():
-        # Login и подтвердите пользователя.
-        # пользователь должен быть экземпляром вашего класса User
+        username = request.form['username']
+        password = request.form['password']
 
-        flash('Успешный вход.')
-
+        flash(f'{username} {password}')
+        print(1)
         return redirect(url_for('admin'))
+    print(2)
     return render_template('login.html', form=form)
 
 
 @app.route("/logout")
 @login_required
 def logout():
-    logout_user()
+    # logout_user()
     return redirect(url_for('index'))
 
 
@@ -123,7 +128,6 @@ def error_404(error):
 # run app
 
 if __name__ == "__main__":
-
     # uncomment if you need
 
     # for server use:
@@ -131,4 +135,4 @@ if __name__ == "__main__":
     # serve(app, host="::1", port=80, _quiet=False)
 
     # for tests:
-    app.run(host="::", port=80, debug=True)
+    app.run(host="0.0.0.0", port=80, debug=True)

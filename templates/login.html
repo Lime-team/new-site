@@ -6,17 +6,17 @@
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-    <form method="POST" action="">
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            {{ form.csrf_token() }}
-            <label for=""> {{ form.email.label }}</label>
-            {{ form.email }}
-        </div>
-        <div class="form-group">
-            {{ form.submit(class="btn btn-primary")}}
-        </div>
-    </div>
-    </form>
+	<form action="" method="post" novalidate>
+		{{ form.hidden_tag() }}
+		<p>
+		  {{ form.username.label }}<br>
+		  {{ form.username(size=32) }}
+		</p>
+		<p>
+		  {{ form.password.label }}<br>
+		  {{ form.password(size=32) }}
+		</p>
+		<p>{{ form.submit() }}</p>
+	</form>
     <a href="/register">Регистрация</a>
 </body>
