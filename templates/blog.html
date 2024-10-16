@@ -10,25 +10,22 @@
     <link rel="stylesheet" href="static/style.css">
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-
-    <link rel="import" href="static/blog_files/a.html" />
 </head>
 
 <body>
     <div class="container1">
         <h1>Привет! Это блог!</h1>
         <div class="container2">
-            <a class="btn" href="/login" title="Вход в блог">Вход в блог</a>
+            {% if current_user.is_anonymous %}
+                <a class="btn" href="/login" title="Вход">Вход</a>
+            {% else %}
+                <a class="btn" href="/logout" title="Выход">Выход</a>
+            {% endif %}
             <a class="btn" href="/" title="На главную">На главную</a>
         </div>
         <h1>Статьи:</h1>
-        {% for page in pages %}
-            <script>
-                var doc = document.querySelector('link[rel="import"]').import;
-                // Grab DOM from doc.html's document.
-                var text = doc.querySelector('.a');
-                document.body.appendChild(text.cloneNode(true));
-            </script>
-        {% endfor %}
+<!--        {% for page in pages %}-->
+<!--            -->
+<!--        {% endfor %}-->
     </div>
 </body>

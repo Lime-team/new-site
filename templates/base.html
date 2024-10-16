@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <meta name="description" content="{{name}}" />
+
+        <title>{{name}}</title>
+
+        <link rel="stylesheet" href="static/style.css">
+
+        <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+        {% if name != "Главная" %}
+            <a class="btn" href="/" title="На главную">На главную</a>
+        {% endif %}
+    </body>
+</html>

@@ -1,18 +1,6 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-
-    <meta name="description" content="Главная сайта" />
-
-    <title>Главная</title>
-
-    <link rel="stylesheet" href="static/style.css">
-
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-
-<body>
+{% block content %}
     <div class="container1">
         <h1>Привет! Добро пожаловать на мой сайт</h1>
     </div>
@@ -32,10 +20,4 @@
                 Мой Discord сервер</a>
         </div>
     </div>
-</body>
-
-<footer>
-    <div class="dnsexit">
-        <a href="http://dnsexit.com"><img src="http://dnsexit.com/images/dns2.gif" border=0></a>
-    </div>
-</footer>
+{% endblock %}
