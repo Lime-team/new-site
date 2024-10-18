@@ -136,6 +136,7 @@ class User(UserMixin, db.Model):
     password_hash: so.Mapped[Optional[str]] = so.mapped_column(sa.String(256))
     posts: so.WriteOnlyMapped['Post'] = so.relationship(
         back_populates='author')
+    level: so.Mapped[int] = so.mapped_column()
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
