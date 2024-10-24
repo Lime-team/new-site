@@ -1,19 +1,7 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-
-    <meta name="description" content="Discord сервер" />
-
-    <title>Discord сервер</title>
-
-    <link rel="stylesheet" href="static/style.css">
-
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-
-<body>
-    <div class="container">
+{% block content %}
+    <div class="container1">
         <img src="static/images/icon.png" alt="Лого сервера" width="100" height="100">
         <h1>Привет! Добро пожаловать на сайт сервера LimeLand</h1>
         <a class="btn" href="https://discord.gg/z4uzjbKah9" title="Зайти на сервер">Зайти на сервер</a>
@@ -22,6 +10,5 @@
                 width="350" height="400" allowtransparency="true" frameborder="0"
                 sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
         </iframe>
-        <a class="btn" href="/" title="На главную">На главную</a>
     </div>
-</body>
+{% endblock %}

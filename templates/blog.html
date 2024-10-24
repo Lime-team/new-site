@@ -1,18 +1,6 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-
-    <meta name="description" content="Блог" />
-
-    <title>Блог</title>
-
-    <link rel="stylesheet" href="static/style.css">
-
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-</head>
-
-<body>
+{% block content %}
     <div class="container1">
         <h1>Привет! Это блог!</h1>
         <div class="container2">
@@ -23,9 +11,12 @@
             {% endif %}
             <a class="btn" href="/" title="На главную">На главную</a>
         </div>
+        {% if not current_user.is_anonymous %}
+            {{ current_user.is_admin() }}
+        {% endif %}
         <h1>Статьи:</h1>
 <!--        {% for page in pages %}-->
 <!--            -->
 <!--        {% endfor %}-->
     </div>
-</body>
+{% endblock %}
