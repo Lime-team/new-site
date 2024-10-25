@@ -2,7 +2,7 @@
 ## Note: You must have python 3.x
 ## How to clone
 ### 1. clone by url / ssh / github cli
-### 2. use ' pip install -r requirements.txt 'to install pakages
+### 2. use ' pip install Flask-LPackages 'to install pakages
 ### 3. flask-migrate:
 flask db init
 
