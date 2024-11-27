@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container1">
+        <h1>Привет! Это блог!</h1>
+    </div>
+    <div class="container2">
+        <div class="left">
+            {% if current_user.is_anonymous %}
+                <a class="btn" href="/login" title="Вход">Вход</a>
+            {% else %}
+                <a class="btn" href="/logout" title="Выход">Выход</a>
+            {% endif %}
+        </div>
+        <div class="right">
+            <a class="btn" href="/" title="На главную">На главную</a>
+        </div>
+    </div>
+    <div class="container1">
+        {% if current_user.is_anonymous %}
+            <a class="btn" href="/register" title="Регистрация">Регистрация</a>
+        {% else %}
+            <a class="btn" href="/new-post" title="Новый пост">Новый пост</a>
+        {% endif %}
+    </div>
+    <h1>Статьи:</h1>
+        {% for post in posts %}
+
+        {% endfor %}
+{% endblock %}
